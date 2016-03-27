@@ -9,5 +9,5 @@ node {
    stage 'Build'
 
    // Run the maven build
-   sh "sbt test"
+   sh "/var/jenkins_home/tools/hudson.model.JDK/jdk8/bin/java -Dsbt.log.noformat=true -jar /var/jenkins_home/tools/org.jvnet.hudson.plugins.SbtPluginBuilder_SbtInstallation/sbt-local/bin/sbt-launch.jar test"
 }
