@@ -1,5 +1,5 @@
 name := "scala-playground"
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 javacOptions := Seq("-source", "1.8", "-target", "1.8", "-g")
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Xlint")

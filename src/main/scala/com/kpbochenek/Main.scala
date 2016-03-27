@@ -21,4 +21,6 @@ object Main {
     val p = Process(1, 2, 3, 4, 5)
     process(p)
   }
+
+  def add2Numbers(a: Int, b: Int) = a + b
 }
