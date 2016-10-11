@@ -3,7 +3,7 @@ lazy val root = project.in(file("."))
   .aggregate(sub1, sub2)
 
 lazy val sub1 = project.in(file("sub1"))
-lazy val sub2 = project.in(file("sub2")).dependsOn(sub1)
+lazy val sub2 = project.in(file("sub2")).dependsOn(sub1 % "compile->compile;test->test")
 
 
 name := "scala-playground"
