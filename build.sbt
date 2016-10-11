@@ -19,6 +19,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-experimental" % "2.4.8",
 
   "org.json4s" %% "json4s-native" % "3.4.0",
+  "org.json4s" %% "json4s-ext" % "3.4.0",
 
 
   "org.scalaz.stream" %% "scalaz-stream" % "0.8",
