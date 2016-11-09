@@ -3,10 +3,12 @@ package com.kpbochenek
 import java.io.{ByteArrayOutputStream, PrintWriter}
 import java.util
 import java.util.concurrent._
+import java.util.function.Predicate
 
 import com.typesafe.config.{Config, ConfigFactory}
 import org.json4s.ext.EnumSerializer
 
+import scala.collection.mutable
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.reflect.ClassTag
@@ -294,7 +296,23 @@ object ContinuousPassingStyle {
 
 
   def main(args: Array[String]): Unit = {
-    print(List(1, 2, 5, 4, 2).sorted)
+    println(List(1, 2, 5, 4, 2).sorted)
 
+    val pq = mutable.PriorityQueue[Int]()
+    pq ++= List(10, 20, 3, 30, 4, 8)
+
+    println(pq.head)
+
+    val al = new java.util.ArrayList[Int]()
+    for (i <- 1 to 10) al.add(i)
+
+    println("---------- AL ----------")
+    println(al)
+    val p: Predicate[Int] = new java.util.function.Predicate[Int] {
+      override def test(t: Int): Boolean = t > 6
+    }
+    al.removeIf(p)
+    al.remove(new Integer(3))
+    println(al)
   }
 }
