@@ -1,14 +1,14 @@
 package com.kpbochenek
 
-import scalaz.{Failure, Semigroup, Success, Validation}
+import scalaz.{Failure, NonEmptyList, Semigroup, Success, Validation, ValidationNel}
 
 /** Created by kpbochenek on 8/3/16. */
 
 object ProgrammingScala4 {
 
-  def check(str: String): Validation[List[String], Int] = {
-    if (str.contains(" ")) { Failure(List(s"$str - no space allowed")) }
-    else if (str.contains(".")) { Failure(List(s"$str - no DOT allowed")) }
+  def check(str: String): ValidationNel[String, Int] = {
+    if (str.contains(" ")) { Failure(NonEmptyList(s"$str - no space allowed")) }
+    else if (str.contains(".")) { Failure(NonEmptyList(s"$str - no DOT allowed")) }
     else Success(str.length)
   }
 
@@ -27,9 +27,11 @@ object ProgrammingScala4 {
 
     import scalaz.Semigroup._
 
-    val r = check("ala") +++ check("tomek") +++ check("geez error") +++ check("okpo") +++ check("???.???")
+    val r: ValidationNel[String, Int] = check("ala") +++ check("tomek") +++ check("geez error") +++ check("okpo") +++ check("???.???")
 
+    val r2: ValidationNel[String, Int] = check("ala") +++ check("tomek")
     println(r)
 
+    println(r2)
   }
 }

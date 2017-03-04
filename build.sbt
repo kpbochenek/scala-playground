@@ -21,6 +21,9 @@ libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-native" % "3.4.0",
   "org.json4s" %% "json4s-ext" % "3.4.0",
 
+  "org.scalaz"        %% "scalaz-core"   % "7.2.7",
+  "org.typelevel"     %% "cats"          % "0.9.0",
+
 
   "org.scalaz.stream" %% "scalaz-stream" % "0.8",
   "org.specs2"        %% "specs2-core"   % "3.7"  % "test"
