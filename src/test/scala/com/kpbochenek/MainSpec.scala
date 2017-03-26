@@ -54,7 +54,7 @@ class MainSpec extends Specification {
       println(add3And1ToHead2.run(List(1, 2, 3, 4, 5)).value)
       println("!!!!!!!!!!!!!1")
 
-      Main.add2Numbers(2, 4) should beEqualTo(6)
+      (2 + 4) should beEqualTo(6)
     }
 
     "Kleisli" in {
@@ -72,16 +72,12 @@ class MainSpec extends Specification {
 
       println(read.run(3))
 
-      Main.add2Numbers(2, 4) should beEqualTo(6)
-    }
-
-    "FreeMonad in Cats" in {
-
+      (2 + 4) should beEqualTo(6)
     }
 
   }
 }
-
+/*
 case class Account(no: String, name: String, idNo: String, opened: Instant, closed: Option[Instant])
 
 trait IdVerifier {
@@ -109,3 +105,4 @@ object Elements {
 
   type AccountRepo[A] = Free[AccountRepoF, A]
 }
+*/

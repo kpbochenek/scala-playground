@@ -1,7 +1,7 @@
 package com.kpbochenek.akkarest
 
 
-
+/*
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Directives._
@@ -32,4 +32,4 @@ object RestService extends App {
     .flatMap(_.unbind()) // trigger unbinding from the port
     .onComplete(_ ⇒ system.terminate()) // and shutdown when done
 }
-
+*/
