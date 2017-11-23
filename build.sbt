@@ -1,15 +1,12 @@
+import sbt._
 
 lazy val root = project.in(file("."))
-  .aggregate(sub1, sub2, FreeMonad)
+  .aggregate(scalaz)
 
-lazy val sub1 = project.in(file("sub1"))
-lazy val sub2 = project.in(file("sub2")).dependsOn(sub1 % "compile->compile;test->test")
-lazy val FreeMonad = project.in(file("FreeMonad")).settings(
-  libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
-)
+lazy val scalaz = project.in(file("scalaz"))
 
 name := "scala-playground"
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.4"
 
 javacOptions := Seq("-source", "1.8", "-target", "1.8", "-g")
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Xlint")
