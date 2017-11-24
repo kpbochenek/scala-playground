@@ -1,17 +1,22 @@
 import sbt._
+import Dependencies._
+import sbt.Keys.scalacOptions
+
+
+name := "scala-playground"
+scalaVersion := "2.12.4"
+javacOptions := Seq("-source", "1.8", "-target", "1.8", "-g")
+scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Xlint")
+scalacOptions in Test ++= Seq("-Yrangepos")
+
 
 lazy val root = project.in(file("."))
   .aggregate(scalaz)
 
 lazy val scalaz = project.in(file("scalaz"))
-
-name := "scala-playground"
-scalaVersion := "2.12.4"
-
-javacOptions := Seq("-source", "1.8", "-target", "1.8", "-g")
-scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Xlint")
-scalacOptions in Test ++= Seq("-Yrangepos")
-
+    .settings(
+      libraryDependencies ++= scalazDeps ++ scalaTestDeps
+    )
 
 
 libraryDependencies ++= Seq(
